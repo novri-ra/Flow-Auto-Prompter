@@ -352,7 +352,13 @@ async function runAutomationCycle() {
           if (!isRunning) throw new Error("USER_STOPPED");
           const warningToast = document.evaluate("//*[contains(text(), 'unusual activity') or contains(text(), 'You have reached the limit')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (warningToast) {
-              throw new Error("CRITICAL_ACCOUNT_BLOCK");
+              const rect = warningToast.getBoundingClientRect();
+              const style = window.getComputedStyle(warningToast);
+              
+              // Only trigger if the element actually has dimensions and is visible to the human eye
+              if (rect.width > 0 && rect.height > 0 && style.opacity !== "0" && style.display !== "none" && style.visibility !== "hidden") {
+                  throw new Error("CRITICAL_ACCOUNT_BLOCK");
+              }
           }
           const currentTileCount = document.evaluate("count(//img[@alt='Generated image'])", document, null, XPathResult.NUMBER_TYPE, null).numberValue;
           if (currentTileCount > initialTileCount) {
