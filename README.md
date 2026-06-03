@@ -8,6 +8,10 @@ An elite, Manifest V3, God-Tier Chrome DevTools Protocol (CDP) powered automatio
 
 **Flow Auto Prompter** transforms bulk image creation on Google Flow from a tedious manual process into a hands-free, automated pipeline. Operating as a Chrome extension, it utilizes hardware-level simulation through the Chrome DevTools Protocol (CDP) to interact with Google's React-based Single Page Application (SPA) without invoking security blocks or synthetic event triggers.
 
+<div align="center">
+  <img src="assets/screenshot.png" alt="Flow Auto Prompter UI" width="800"/>
+</div>
+
 ### Key Features:
 - **Zero Page-Reload Seamless Looping**: Evaluates the queue in-memory, updating state and injecting the next prompt instantly without losing debugger context or reloading the page.
 - **CDP Hardware-Level Click & Key Injection**: Simulates native OS mouse clicks (left/right) and key presses, bypassing React/Radix event handlers and Slate.js state synchronization checks.
@@ -80,6 +84,13 @@ To elevate Flow Auto Prompter even further:
 
 ---
 
+### Prerequisites
+Before installing and using the extension, please ensure you meet the following requirements:
+- **Chromium-based Browser**: Requires a browser that supports Manifest V3 and Chrome DevTools Protocol (CDP) (e.g., Google Chrome, Brave, or Microsoft Edge).
+- **Desktop Operating System**: Strictly requires a Desktop OS (Windows, macOS, or Linux) because mobile browsers do not support Chrome's `debugger` API.
+
+---
+
 ## 📥 6. Installation & Usage
 
 1. Clone or download this repository to your local drive.
@@ -91,3 +102,21 @@ To elevate Flow Auto Prompter even further:
 
 > [!WARNING]
 > **CDP Debugging Banner**: A yellow warning banner stating `"Flow Auto Prompter started debugging this browser"` will appear at the top of the browser tab. This is a native Chrome security warning indicating that DevTools commands are running. **Do not click 'Cancel'**, as closing this banner will detach the debugger and stop the automation process.
+
+---
+
+## ⚖️ 7. Disclaimer & Liability
+
+This extension is for educational and research purposes only. Automating Google services may violate Google's Terms of Service. The developer is NOT responsible for any Google account bans, rate limits, or loss of service access. Proceed at your own risk, and it is strongly recommended to use a disposable secondary account.
+
+---
+
+## 🤝 8. Contributing
+
+PRs and issues are welcome, especially for updating dynamic XPath selectors if Google Flow's UI changes.
+
+---
+
+## 📄 9. License
+
+This project is released under the [MIT License](LICENSE).
