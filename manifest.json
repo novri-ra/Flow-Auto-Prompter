@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Flow Auto Prompter",
+  "version": "1.0.0",
+  "description": "Bulk automation prompter helper for Google Flow (labs.google/fx/tools/flow).",
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "debugger"
+  ],
+  "host_permissions": [
+    "*://labs.google/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Flow Auto Prompter"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://labs.google/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
